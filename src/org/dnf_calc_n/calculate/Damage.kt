@@ -1085,8 +1085,8 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
             mapStatusResist.forEach { (t, v) ->
                 totalStatusResist += v
             }
-            var upStatusDamage = totalStatusResist * 0.05
-            if(upStatusDamage > 0.1) upStatusDamage = 0.1
+            var upStatusDamage = totalStatusResist * 0.2
+            if(upStatusDamage > 0.15) upStatusDamage = 0.15
             if(upStatusDamage < 0.0) upStatusDamage = 0.0
             println("컨퓨즈드 상의 upStatusDamage = $upStatusDamage")
             statusDamageCondition["출혈"] = (statusDamageCondition["출혈"] ?: 0.0) + upStatusDamage
