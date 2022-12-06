@@ -1099,6 +1099,10 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
         if(arrayEquipment.contains("15232")) {  // 사이버틱 부츠
             if((mapSimpleOption["공속"] ?: 0.0) >= 1.40){
                 cyberSkillDamage = 1.3
+            }else if((mapSimpleOption["공속"] ?: 0.0) >= 1.20){
+                cyberSkillDamage = 1.2
+            }else if((mapSimpleOption["공속"] ?: 0.0) >= 1.0){
+                cyberSkillDamage = 1.1
             }
             println("현재 공격속도 = ${mapSimpleOption["공속"]}")
             println("사이버틱 부츠 cyberSkillDamage = $cyberSkillDamage")
