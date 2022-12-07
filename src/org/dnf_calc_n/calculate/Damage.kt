@@ -1042,8 +1042,8 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
             }
         }
         if(arrayEquipment.contains("22232")){  // 아토믹 코어 네클레스
-            var upCoolRecover = (maxElement/50.0).toInt() * 0.04
-            if(upCoolRecover > 0.24) upCoolRecover = 0.24
+            var upCoolRecover = (maxElement/55.0).toInt() * 0.05
+            if(upCoolRecover > 0.25) upCoolRecover = 0.25
             println("아토믹 목걸이 upCoolRecover = $upCoolRecover")
             for(i in arrayCoolRecover.indices) arrayCoolRecover[i] += upCoolRecover
             var upSpeed = (maxElement/50.0).toInt() * 0.03
