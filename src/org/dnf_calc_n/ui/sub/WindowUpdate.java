@@ -10,10 +10,7 @@ import org.jsoup.nodes.Document;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -56,9 +53,9 @@ public class WindowUpdate extends JFrame {
         updateText = new StringBuilder();
         updateText.append("<html>");
         String inputLine;
-        try (InputStream in = new URL(
-                "https://raw.githubusercontent.com/dawnclass/DNF_Calculator_N/master/update.txt"
-        ).openStream()){
+        try (InputStream in = new FileInputStream("update.txt")
+             //InputStream in = new URL("https://raw.githubusercontent.com/dawnclass/DNF_Calculator_N/master/update.txt").openStream()
+        ){
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             int i = 0;
             while((inputLine = br.readLine())!= null){
