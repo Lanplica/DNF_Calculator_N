@@ -1054,12 +1054,12 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
         }
         var elementMaxSkillDamage = 1.0
         if(arrayEquipment.contains("23232")){  // 에너지 서치 링
-            if(maxElement >= 300.0){
+            if(maxElement >= 275.0){
                 totalSumDamage += 2816.0
                 elementMaxSkillDamage = 1.07
-            }else if(maxElement >= 250){
+            }else if(maxElement >= 225){
                 totalSumDamage += 1927.0
-            }else if(maxElement >= 200){
+            }else if(maxElement >= 175){
                 totalSumDamage += 1037.0
             }
             println("에너지 서치 링 elementMaxSkillDamage = $elementMaxSkillDamage")
