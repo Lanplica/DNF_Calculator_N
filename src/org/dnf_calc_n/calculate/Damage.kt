@@ -891,67 +891,6 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
         elementArray[1] += (simpleSumOptions["수 속성강화"] ?: 0.0) + arrayElement[1] + customElement[1]
         elementArray[2] += (simpleSumOptions["명 속성강화"] ?: 0.0) + arrayElement[2] + customElement[2]
         elementArray[3] += (simpleSumOptions["암 속성강화"] ?: 0.0) + arrayElement[3] + customElement[3]
-        if(arrayEquipment.contains("33142")){  // 귀걸이 타속강 4종 시리즈
-            var upElement = (elementArray[1] / 6).toInt().toDouble()
-            if(upElement > 50.0) upElement = 50.0
-            elementArray[0] += upElement
-            elementArray[2] += upElement
-            elementArray[3] += upElement
-            var downElement = (elementArray[1] / 10).toInt().toDouble()
-            if(downElement > 30.0) downElement = 30.0
-            mapSimpleOption["화 속성저항"] = (mapSimpleOption["화 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["명 속성저항"] = (mapSimpleOption["명 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["암 속성저항"] = (mapSimpleOption["암 속성저항"] ?: 0.0) - downElement
-            if(elementArray[1] > 150.0){
-                mapSimpleOption["물크"] = (mapSimpleOption["물크"] ?: 0.0) + 0.15
-                mapSimpleOption["마크"] = (mapSimpleOption["마크"] ?: 0.0) + 0.15
-            }
-        }else if(arrayEquipment.contains("33042")){  // 귀걸이 타속강 4종 시리즈
-            var upElement = (elementArray[0] / 6).toInt().toDouble()
-            if(upElement > 50.0) upElement = 50.0
-            elementArray[1] += upElement
-            elementArray[2] += upElement
-            elementArray[3] += upElement
-            var downElement = (elementArray[0] / 10).toInt().toDouble()
-            if(downElement > 30.0) downElement = 30.0
-            mapSimpleOption["수 속성저항"] = (mapSimpleOption["수 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["명 속성저항"] = (mapSimpleOption["명 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["암 속성저항"] = (mapSimpleOption["암 속성저항"] ?: 0.0) - downElement
-            if(elementArray[0] > 150.0){
-                mapSimpleOption["물크"] = (mapSimpleOption["물크"] ?: 0.0) + 0.15
-                mapSimpleOption["마크"] = (mapSimpleOption["마크"] ?: 0.0) + 0.15
-            }
-        }else if(arrayEquipment.contains("33152")){  // 귀걸이 타속강 4종 시리즈
-            var upElement = (elementArray[3] / 6).toInt().toDouble()
-            if(upElement > 50.0) upElement = 50.0
-            elementArray[0] += upElement
-            elementArray[1] += upElement
-            elementArray[2] += upElement
-            var downElement = (elementArray[3] / 10).toInt().toDouble()
-            if(downElement > 30.0) downElement = 30.0
-            mapSimpleOption["화 속성저항"] = (mapSimpleOption["화 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["수 속성저항"] = (mapSimpleOption["수 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["명 속성저항"] = (mapSimpleOption["명 속성저항"] ?: 0.0) - downElement
-            if(elementArray[3] > 150.0){
-                mapSimpleOption["물크"] = (mapSimpleOption["물크"] ?: 0.0) + 0.15
-                mapSimpleOption["마크"] = (mapSimpleOption["마크"] ?: 0.0) + 0.15
-            }
-        }else if(arrayEquipment.contains("33082")){  // 귀걸이 타속강 4종 시리즈
-            var upElement = (elementArray[2] / 6).toInt().toDouble()
-            if(upElement > 50.0) upElement = 50.0
-            elementArray[0] += upElement
-            elementArray[1] += upElement
-            elementArray[3] += upElement
-            var downElement = (elementArray[2] / 10).toInt().toDouble()
-            if(downElement > 30.0) downElement = 30.0
-            mapSimpleOption["화 속성저항"] = (mapSimpleOption["화 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["수 속성저항"] = (mapSimpleOption["수 속성저항"] ?: 0.0) - downElement
-            mapSimpleOption["암 속성저항"] = (mapSimpleOption["암 속성저항"] ?: 0.0) - downElement
-            if(elementArray[2] > 150.0){
-                mapSimpleOption["물크"] = (mapSimpleOption["물크"] ?: 0.0) + 0.15
-                mapSimpleOption["마크"] = (mapSimpleOption["마크"] ?: 0.0) + 0.15
-            }
-        }
         var naturalSkillDamage = 1.0
         if(arrayEquipment.contains("11152")) {  // 자수 시리즈
             if(elementArray[0] > 250.0) {
