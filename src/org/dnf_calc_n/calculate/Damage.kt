@@ -195,7 +195,7 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
         "enchantMagic", "enchantTitle", "elementExtra"
     )
     private val customStatKey = arrayOf(
-        "enchantArmorStat", "enchantShoulder", "enchantArmorCritical", "enchantSub", "enchantEarring"
+        "enchantArmorStat", "enchantShoulder", "enchantArmorCritical1", "enchantArmorCritical2", "enchantSub", "enchantEarring"
     )
     private fun loadCustomData(){
         applyStat = 80000.0
@@ -218,20 +218,65 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
         println("applyStat = : $applyStat")
         println("applyAtk = : $applyAtk")
 
-        when((jsonSave["title"] ?: "피증 15%") as String){
-            "피증 15%"->titlePetPercent+=0.15
-            "피증 10%"->titlePetPercent+=0.1
-            "모속 32"->{
-                for(i in 0 until 4) customElement[i] += 32.0
+        customStat = arrayOf( //스탯 공 스증
+            0.0, 0.0, 1.0)
+
+        when((jsonSave["title"] ?: "피증 18%") as String){
+            "피증 18%"->{ //스탯 100+ 마부스탯 25
+                titlePetPercent+=0.18
+                for(i in 0 until 4) customElement[i] += 10.0
+                customStat[0] += 125.toDouble()
             }
+            "피증 15%"->{ //스탯 40+ 마부스탯 25
+                titlePetPercent+=0.15
+                customStat[0] += 65.toDouble()
+            }
+
         }
-        when((jsonSave["creature"] ?: "피증 18%") as String){
+        when((jsonSave["creature"] ?: "피증 20%") as String){
+            "피증 20%"->{
+                titlePetPercent+=0.2
+                pet2ndPassive+=1.0
+                for(i in 0 until 4) customElement[i] += 25.0
+                customStat[0] += 100.toDouble()
+            }
+            "피증 19%"->{
+                titlePetPercent+=0.19
+                pet2ndPassive+=1.0
+                customStat[0] += 100.toDouble()
+            }
             "피증 18%"->{
                 titlePetPercent+=0.18
                 pet2ndPassive+=1.0
+                customStat[0] += 65.toDouble()
             }
-            "피증 15%"->titlePetPercent+=0.15
-
+        }
+        when((jsonSave["enchantSub"] ?: "피증 3%") as String){
+            "피증 3%"->{
+                titlePetPercent+=0.03
+                for(i in 0 until 4) customElement[i] += 12.0
+            }
+        }
+        when((jsonSave["aura"] ?: "피증 3%") as String){
+            "피증 3%"->{
+                titlePetPercent+=0.03
+                for(i in 0 until 4) customElement[i] += 30.0
+                customStat[0] += 100.toDouble()
+            }
+            "모속 25"->{
+                for(i in 0 until 4) customElement[i] += 25.0
+                customStat[0] += 100.toDouble()
+            }
+        }
+        when((jsonSave["enchantEarring"] ?: "모속 15") as String){
+            "모속 15"->{
+                for(i in 0 until 4) customElement[i] += 15.0
+                customStat[0] += 70.toDouble()
+            }
+            "모속 11"->{
+                for(i in 0 until 4) customElement[i] += 11.0
+                customStat[0] += 50.toDouble()
+            }
         }
 
         for(key in customElementKey){
@@ -269,8 +314,6 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
             }
 
         }
-        customStat = arrayOf( //스탯 공 스증
-            0.0, 0.0, 1.0)
         for(key in customStatKey){
             val nowCustomStat = arrayOf(0.0, 0.0, 1.0)
             val nowString = (jsonSave[key] ?: continue) as String
@@ -306,9 +349,10 @@ class Damage(private var equipmentData: JSONObject, private var customData: JSON
                 "enchantShoulder" -> {
                     if(arrayEquipment.contains("13052")) multiValue += 1.0
                 }
-                "enchantArmorCritical" -> {  // 벨신 2배수
-                    multiValue += 1
+                "enchantArmorCritical1" -> {  // 벨트 2배수
                     if(arrayEquipment.contains("14052")) multiValue += 1.0
+                }
+                "enchantArmorCritical2" -> {  // 신발 2배수
                     if(arrayEquipment.contains("15052")) multiValue += 1.0
                 }
                 "enchantSub" -> {
