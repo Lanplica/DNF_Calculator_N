@@ -129,20 +129,20 @@ public class WindowMainNew extends JFrame {
                 buff, damage, mapWidgetCombo, windowExplain, windowCustomOption
         );
 
-        JButton twip = new JButton();
-        twip.setIcon(mapIconExtra.get("donate"));
-        twip.setBounds(931+240, 489-479, 67, 56);
-        twip.setBackground(new Color(34, 32, 37));
-        twip.setBorder(new EmptyBorder(0,0,0,0));
-        twip.addActionListener(e -> {
-            try {
-                Desktop.getDesktop().browse(new URI("https://twip.kr/dawnclass16"));
-            }
-            catch (IOException | URISyntaxException d) {
-                d.printStackTrace();
-            }
-        });
-        mainPanel.add(twip);
+//        JButton twip = new JButton();
+//        twip.setIcon(mapIconExtra.get("donate"));
+//        twip.setBounds(931+240, 489-479, 67, 56);
+//        twip.setBackground(new Color(34, 32, 37));
+//        twip.setBorder(new EmptyBorder(0,0,0,0));
+//        twip.addActionListener(e -> {
+//            try {
+//                Desktop.getDesktop().browse(new URI("https://twip.kr/dawnclass16"));
+//            }
+//            catch (IOException | URISyntaxException d) {
+//                d.printStackTrace();
+//            }
+//        });
+//        mainPanel.add(twip);
 
         JButton update = new JButton();
         update.setText(

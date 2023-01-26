@@ -53,8 +53,8 @@ public class WindowUpdate extends JFrame {
         updateText = new StringBuilder();
         updateText.append("<html>");
         String inputLine;
-        try (InputStream in = new FileInputStream("update.txt")
-             //InputStream in = new URL("https://raw.githubusercontent.com/dawnclass/DNF_Calculator_N/master/update.txt").openStream()
+        try (//InputStream in = new FileInputStream("update.txt")
+             InputStream in = new URL("https://raw.githubusercontent.com/Lanplica/DNF_Calculator_N/master/update.txt").openStream()
         ){
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             int i = 0;
