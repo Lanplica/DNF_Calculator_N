@@ -131,7 +131,7 @@ class Buff(private var equipmentData: JSONObject, private var customData: JSONOb
     }
 
     private val customStatKey = arrayOf(
-        "enchantBuffArmor12", "enchantBuffArmor345",
+        "enchantBuffArmor0", "enchantBuffArmor12", "enchantBuffArmor345",
         "enchantBuffAccessory", "enchantBuffSub", "enchantBuffMagic",
         "enchantBuffEarring", "buffAmp"
     )
@@ -147,10 +147,12 @@ class Buff(private var equipmentData: JSONObject, private var customData: JSONOb
                 var nowStat = 0.0
                 when(nowString){
                     "0증" -> nowStat = 0.0
+                    "7증" -> nowStat = 34.0 * 12.0
                     "8증" -> nowStat = 61.0 * 12.0
                     "10증" -> nowStat = 91.0 * 12.0
-                    "11증" -> nowStat = 108.0 * 12.0
+                    "11증" -> nowStat = 107.0 * 12.0
                     "12증" -> nowStat = 130.0 * 12.0
+                    "13증" -> nowStat = 168.0 * 12.0
                 }
                 customStatInt += nowStat
                 customStatMental += nowStat
