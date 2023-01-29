@@ -1,3 +1,6 @@
-제작자 블로그: https://blog.naver.com/dawnclass16/222691883990
+원작자 블로그: https://blog.naver.com/dawnclass16/222691883990
 
-후원 링크:  https://twip.kr/dawnclass16
+업데이트 작업자 GitHub: https://github.com/Lanplica/DNF_Calculator_N
+
+작업자 GitHub 사이트 하단 README.md 확인 또는
+README.md 파일을 메모장으로 열어서 상세 옵션 확인 요망
