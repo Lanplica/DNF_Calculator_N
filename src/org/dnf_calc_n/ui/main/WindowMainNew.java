@@ -11,6 +11,7 @@ import org.dnf_calc_n.ui.sub.WindowCustomOption;
 import org.dnf_calc_n.ui.sub.WindowExplain;
 import org.dnf_calc_n.ui.sub.WindowSave;
 import org.dnf_calc_n.ui.sub.WindowUpdate;
+import org.dnf_calc_n.ui.sub.ItemFusion;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
@@ -129,20 +130,24 @@ public class WindowMainNew extends JFrame {
                 buff, damage, mapWidgetCombo, windowExplain, windowCustomOption
         );
 
-//        JButton twip = new JButton();
-//        twip.setIcon(mapIconExtra.get("donate"));
-//        twip.setBounds(931+240, 489-479, 67, 56);
-//        twip.setBackground(new Color(34, 32, 37));
-//        twip.setBorder(new EmptyBorder(0,0,0,0));
-//        twip.addActionListener(e -> {
-//            try {
-//                Desktop.getDesktop().browse(new URI("https://twip.kr/dawnclass16"));
-//            }
-//            catch (IOException | URISyntaxException d) {
-//                d.printStackTrace();
-//            }
-//        });
-//        mainPanel.add(twip);
+        JButton fusion = new JButton();
+        fusion.setText(
+                LoadString.strGet("융합픽선택")
+        );
+        fusion.setBounds(931+240, 489-479, 67, 56);
+        fusion.setBackground(Color.LIGHT_GRAY);
+        fusion.setBorder(new BevelBorder(BevelBorder.RAISED));
+        fusion.setFont(mapFont.get("normal_bold"));
+        fusion.setHorizontalAlignment(JButton.CENTER);
+        fusion.setForeground(Color.BLACK);
+        fusion.addActionListener(e -> {
+            try {
+                windowUpdate.dispose();
+            }catch (Exception ignored){}
+            windowUpdate = new WindowUpdate(nowVersion, this);
+            windowUpdate.setVisible(true);
+        });
+        mainPanel.add(fusion);
 
         JButton update = new JButton();
         update.setText(
