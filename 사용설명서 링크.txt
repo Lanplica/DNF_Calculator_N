@@ -1,6 +1,11 @@
-원작자 블로그: https://blog.naver.com/dawnclass16/222691883990
+사용설명서 및 원작자 블로그: https://blog.naver.com/dawnclass16/222691883990
+
+
+
+1.8버전 이상의 Java Runtime Environment(JRE)가 필요합니다.
+
+다운로드 링크(오라클 공식 홈페이지): https://java.com/ko/download/
+
+
 
 업데이트 작업자 GitHub: https://github.com/Lanplica/DNF_Calculator_N
-
-작업자 GitHub 사이트 하단 README.md 확인 또는
-README.md 파일을 메모장으로 열어서 상세 옵션 확인 요망
